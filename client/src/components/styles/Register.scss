@@ -1,0 +1,80 @@
+@import 'config';
+
+.register_container {
+  height: 100vh;
+  width: 100%;
+  @extend %center_flex;
+
+  .register_form_container {
+    height: 75%;
+    width: 60%;
+    @extend %center_flex;
+    box-shadow: 3px 3px 4px 2px #ccc;
+    border-radius: 20px;
+
+    .form_container {
+      height: 100%;
+      width: 50%;
+      @extend %center_flex;
+
+      .form {
+        height: 80%;
+        width: 50%;
+        @extend %center_flex;
+        flex-direction: column;
+
+        .register_form_input {
+          display: block;
+          height: 10%;
+          width: 100%;
+          border: none;
+          margin-bottom: 40px;
+          border-bottom: 2px solid gray;
+          background: transparent;
+          @extend %small_montserrat;
+          transition: all 0.5s ease-in-out;
+        }
+
+        .register_form_input::-webkit-input-placeholder {
+          transition: all 0.5s ease-in-out;
+        }
+
+        .register_form_input:focus {
+          outline: none;
+          border-bottom: 2px solid $light_pink;
+        }
+
+        .register_form_input:focus::-webkit-input-placeholder {
+          color: $light-pink;
+        }
+
+        .register_button {
+          @extend %basic_button;
+          @extend %small_montserrat;
+          border: none;
+          background: $light-pink;
+          color: white;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .register_button:hover {
+          background: black;
+          color: white;
+        }
+      }
+    }
+
+    .register_img_container {
+      height: 100%;
+      width: 50%;
+      background: #abe8e3;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      @extend %center_flex;
+
+      img {
+        @include img_sizing(90%);
+      }
+    }
+  }
+}

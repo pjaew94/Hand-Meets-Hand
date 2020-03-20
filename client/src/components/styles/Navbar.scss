@@ -1,0 +1,51 @@
+@import 'config';
+
+.nav_container {
+  height: 10vh;
+  width: 100%;
+  background: transparant;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @extend %center_flex;
+
+  .nav_inner_container {
+    height: 100%;
+    width: 60%;
+    @extend %space_between_flex;
+
+    .logo_text {
+      color: $text_color;
+      text-decoration: none;
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+    }
+
+    ul {
+      height: 100%;
+      width: 45%;
+      @extend %space_between_flex;
+      list-style-type: none;
+
+      .li {
+        text-decoration: none;
+      }
+      .basic_li {
+        color: #4E4958;
+        @extend %small_montserrat;
+        font-weight: 300;
+        font-size: 0.8;
+      }
+
+      .color1_li {
+        @extend %small_baloo;
+        color: $text_color;
+      }
+
+      .color2_li {
+        @extend %small_baloo;
+        color: #f6a7ba;
+      }
+    }
+  }
+}

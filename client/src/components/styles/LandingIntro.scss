@@ -1,0 +1,100 @@
+@import 'config';
+
+.landing_intro_container {
+  height: 100vh;
+  width: 100%;
+  background-color: #FFEDE9;
+  @extend %center_flex;
+
+  .inner_container {
+    height: 75%;
+    width: 60%;
+    @extend %center_flex;
+    flex-direction: column;
+    transform: translateY(30px);
+
+    .upper_container,
+    .lower_container {
+      height: 50%;
+      width: 100%;
+      @extend %space_between_flex;
+
+      .h1_container {
+        width: 45%;
+        h1 {
+          @extend %title_baloo;
+          color: $text_color;
+        }
+      }
+
+      .h3_container {
+        
+        h3 {
+          @extend %small_montserrat;
+          color: $text_color;
+          font-size: 0.9rem;
+          line-height: 1.6rem;
+        }
+      }
+    }
+
+    .upper_container {
+      img {
+        @include img_sizing(50%);
+      
+      }
+    }
+
+    .lower_container {
+
+      .lower_right_container {
+        height: 100%;
+        width: 40%;
+        transform: translate(-10%, 10%);
+        @extend %center_flex;
+        flex-direction: column;
+
+        .buttons_container {
+          height: 20%;
+          width: 100%;
+          transform: translateY(50px);
+          @extend %center_flex;
+
+          .how_button {
+            @extend %center_flex;  
+            @extend %basic_button;
+            border: 2px solid $text_color;
+            @extend %small_montserrat;
+            margin-right: 80px;
+            color: $text_color;
+          }
+
+          .how_button:hover {
+            background: $text_color;
+            color: white;
+          }
+
+          .post_button {
+            @extend %center_flex;  
+            @extend %basic_button;
+            background: $light_pink;
+            @extend %small_montserrat;
+            text-decoration: none;
+            color: white;
+          }
+
+          .post_button:hover {
+            background: transparent;
+            border: 2px solid $light_pink;
+            color: $light_pink;
+          }
+
+        }
+
+      }
+      img {
+        @include img_sizing(40%);
+      }
+    }
+  }
+}

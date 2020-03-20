@@ -1,0 +1,51 @@
+// Flex configs
+%center_flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%space_between_flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+// Text configs
+%title_baloo {
+  font-family: 'Baloo', cursive;
+  font-size: 5rem;
+  line-height: 6rem;
+}
+
+%small_baloo {
+  font-family: 'Baloo', cursive;
+  font-size: 1.2rem;
+}
+
+%small_montserrat {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+$text_color: #0c0b18;
+
+$light_pink: #f6a7ba;
+
+// Img/svg configs
+@mixin img_sizing($width) {
+  height: auto;
+  width: $width;
+}
+
+
+// Button configs
+%basic_button {
+  height: 60px;
+  width: 170px;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
