@@ -1,10 +1,12 @@
 import React, { Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types'
+import { logout } from '../../actions/auth'
 
 import '../styles/Navbar.scss';
 
-const Navbar = () => {
+const Navbar = ({ auth: {isAuthenticated, loading}, logout }) => {
   const authLinks = (
     <ul>
       <li>
@@ -17,7 +19,7 @@ const Navbar = () => {
         <Link className='color1_li li'  to=''>My Profile</Link>
       </li>
       <li>
-        <Link className='color2_li li'  to=''>Logout</Link>
+        <a className='color2_li li' onClick={logout} href='#!'>Logout</a>
       </li>
     </ul>
   );
@@ -45,10 +47,19 @@ const Navbar = () => {
         <Link className='logo_text' to='/'>
           HmH
         </Link>
-        {guestLinks}
+        { !loading && (<Fragment>{ isAuthenticated ? authLinks : guestLinks }</Fragment>)}
       </nav>
     </div>
   );
 };
 
-export default Navbar;
+Navbar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+}
+
+const mapStatetoProps = state => ({
+  auth: state.auth
+});
+
+export default connect (mapStatetoProps, { logout }) (Navbar);

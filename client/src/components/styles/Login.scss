@@ -1,0 +1,100 @@
+@import "config";
+
+.login_container {
+  height: 100vh;
+  width: 100%;
+  @extend %center_flex;
+
+  .login_form_container {
+    height: 75%;
+    width: 60%;
+    @extend %center_flex;
+    box-shadow: 3px 3px 4px 2px #ccc;
+    border-radius: 20px;
+
+    .form_container {
+      height: 100%;
+      width: 50%;
+      @extend %center_flex;
+
+      .form {
+        height: 80%;
+        width: 50%;
+        @extend %center_flex;
+        flex-direction: column;
+
+        .login_form_input {
+          display: block;
+          height: 10%;
+          width: 100%;
+          border: none;
+          margin-bottom: 40px;
+          border-bottom: 2px solid gray;
+          background: transparent;
+          @extend %small_montserrat;
+          transition: all 0.5s ease-in-out;
+        }
+
+        .login_form_input::-webkit-input-placeholder {
+          transition: all 0.5s ease-in-out;
+        }
+
+        .login_form_input:focus {
+          outline: none;
+          border-bottom: 2px solid #cc9dff;
+        }
+
+        .login_form_input:focus::-webkit-input-placeholder {
+          color: #cc9dff;
+        }
+
+        .login_button {
+          @extend %basic_button;
+          @extend %small_montserrat;
+          border: none;
+          background: #cc9dff;
+          color: white;
+          transition: all 0.3s ease-in-out;
+        }
+
+        .login_button:hover {
+          background: #9d46fa;
+          color: white;
+        }
+
+        .new_user_prompt {
+          height: 50px;
+          width: 100%;
+          @extend %center_flex;
+          @extend %small_montserrat;
+          font-size: 0.7rem;
+          margin-top: 10px;
+
+          .prompt_link {
+            @extend %small_montserrat;
+            text-decoration: none;
+            color: #cc9dff;
+            margin: 0 5px;
+            transition: all 0.3s ease-in;
+          }
+
+          .prompt_link:hover {
+            color: #9d46fa;
+          }
+        }
+      }
+    }
+    .login_img_container {
+      height: 100%;
+      width: 50%;
+      background: #deecff;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      @extend %center_flex;
+
+      img {
+        @include img_sizing(80%);
+      }
+    }
+  }
+}

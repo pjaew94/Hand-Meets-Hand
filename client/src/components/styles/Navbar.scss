@@ -1,4 +1,4 @@
-@import 'config';
+@import "config";
 
 .nav_container {
   height: 10vh;
@@ -17,7 +17,7 @@
     .logo_text {
       color: $text_color;
       text-decoration: none;
-      font-family: 'Dancing Script', cursive;
+      font-family: "Dancing Script", cursive;
       font-size: 2rem;
     }
 
@@ -31,20 +31,62 @@
         text-decoration: none;
       }
       .basic_li {
-        color: #4E4958;
+        color: #4e4958;
         @extend %small_montserrat;
         font-weight: 300;
         font-size: 0.8;
       }
 
+      .basic_li:after {
+        display: block;
+        content: "";
+        border-bottom: solid 1px #4e4958;
+        transform: scaleX(0);
+        transition: transform 250ms ease-in-out;
+        padding-bottom: 5px;
+      }
+
+      .basic_li:hover:after {
+        transform: scaleX(1);
+      }
+
+      .basic_li:after {
+        transform-origin: 0% 50%;
+      }
+
       .color1_li {
         @extend %small_baloo;
         color: $text_color;
+        text-decoration: none;
+        overflow: hidden;
+        background: linear-gradient(to right, rgb(119, 119, 119), rgb(119, 119, 119) 50%, $text_color 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 210% 100%;
+        background-position: 100%;
+        transition: background-position 275ms cubic-bezier(0.000, 0.000, 0.230, 1);
+        text-decoration: none; // text decorations are clipped in WebKit browsers
+        &:hover {
+          background-position: 0 100%;
+        }
       }
 
       .color2_li {
         @extend %small_baloo;
         color: #f6a7ba;
+        overflow: hidden;
+        background: linear-gradient(to right, rgb(66, 66, 66), rgb(66, 66, 66) 50%, #f6a7ba 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 210% 100%;
+        background-position: 100%;
+        transition: background-position 275ms cubic-bezier(0.000, 0.000, 0.230, 1);
+        text-decoration: none; // text decorations are clipped in WebKit browsers
+        &:hover {
+          background-position: 0 100%;
+        }
       }
     }
   }

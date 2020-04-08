@@ -58,8 +58,29 @@
         }
 
         .register_button:hover {
-          background: black;
+          background: #f1577b;
           color: white;
+        }
+
+        .already_user_prompt {
+          height: 50px;
+          width: 100%;
+          @extend %center_flex;
+          @extend %small_montserrat;
+          font-size: 0.7rem;
+     
+
+          .prompt_link {
+            @extend %small_montserrat;
+            text-decoration: none;
+            color: $light-pink;
+            margin: 0 5px;
+            transition: all 0.3s ease-in;
+          }
+
+          .prompt_link:hover {
+            color: #f1577b;
+          }
         }
       }
     }

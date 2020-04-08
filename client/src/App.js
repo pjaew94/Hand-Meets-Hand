@@ -12,7 +12,15 @@ import setAuthToken from './utils/setAuthToken';
 
 import './App.scss';
 
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
 function App() {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
   return (
     <Provider store={store}>
       <Router>
