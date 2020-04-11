@@ -1,12 +1,18 @@
 import React, { Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Link as LinkScroll } from 'react-scroll';
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import '../../styles/LandingIntro.scss';
 import heartSvg from '../../../svgs/homeSvg.svg';
 import danceSvg from '../../../svgs/BalletDoodle.svg';
 
-const LandingIntro = () => {
+const LandingIntro = ({ isAuthenticated }) => {
+
+
+
+
   return (
     <div className='landing_intro_container'>
       <div className='inner_container'>
@@ -53,4 +59,12 @@ const LandingIntro = () => {
   );
 };
 
-export default LandingIntro;
+LandingIntro.propTypes ={
+  isAuthenticated: PropTypes.bool
+}
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps)(LandingIntro);

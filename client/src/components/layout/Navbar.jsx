@@ -16,7 +16,7 @@ const Navbar = ({ auth: {isAuthenticated, loading}, logout }) => {
         <Link className='basic_li li'  to=''>Create Post</Link>
       </li>
       <li>
-        <Link className='color1_li li'  to=''>My Profile</Link>
+        <Link className='color1_li li'  to='/dashboard'>My Profile</Link>
       </li>
       <li>
         <a className='color2_li li' onClick={logout} href='#!'>Logout</a>
