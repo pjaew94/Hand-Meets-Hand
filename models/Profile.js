@@ -21,10 +21,6 @@ const ProfileSchema = new mongoose.Schema({
   bio: {
     type: String
   },
-  isStudent: {
-    type: Boolean,
-    required: true
-  },
   education: [
     {
       school: {

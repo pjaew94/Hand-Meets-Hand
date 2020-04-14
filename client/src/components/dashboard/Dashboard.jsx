@@ -35,7 +35,7 @@ const Dashboard = ({
                   organizations can get a better understanding of who you are!
                 </div>
                 <div className="text_3">
-                  Click the button below to start!
+                  Click the button below to get started!
                 </div>
                 <div className='button_container'>
                   <Link className='button' to='/create-profile'>

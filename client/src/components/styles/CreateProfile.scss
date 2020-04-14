@@ -1,0 +1,170 @@
+@import 'config';
+
+.create_profile_container {
+  height: auto;
+  width: 100%;
+  @extend %center_flex;
+
+  .inner_container {
+    height: 89vh;
+    width: 60%;
+    box-shadow: 3px 3px 4px 2px #ccc;
+    border-radius: 20px;
+    margin-top: 10vh;
+
+    .create_profile_text {
+      height: 14%;
+      width: 100%;
+      @extend %center_flex;
+      @extend %title_baloo;
+      font-size: 3.5rem;
+    }
+
+    .form {
+      height: 85%;
+      width: 100%;
+      @extend %center_flex;
+      flex-direction: column;
+
+      .form_inner_container {
+        height: 80%;
+        width: 100%;
+        @extend %space_evenly_flex;
+
+        .left_form_container {
+          height: 100%;
+          width: 33%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .right_form_container {
+          height: 100%;
+          width: 33%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .header_text {
+          @extend %small_montserrat;
+          font-size: 2rem;
+          font-weight: 600;
+          width: 100%;
+          padding-bottom: 20px;
+          border-bottom: 1px solid;
+          margin-bottom: 20px;
+        }
+
+        .form_group {
+          height: 15%;
+          width: 100%;
+          margin-bottom: 20px;
+          
+          .form_text {
+            @extend %small_montserrat;
+            margin-bottom: 5px;
+          }
+
+          .selector {
+            display: block;
+            height: 50%;
+            width: 60%;
+            border: none;
+            margin-bottom: 40px;
+            border-bottom: 2px solid gray;
+            background: transparent;
+            @extend %small_montserrat;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+          }
+    
+          .create_profile_form_input {
+            display: block;
+            height: 50%;
+            width: 60%;
+            border: none;
+            margin-bottom: 40px;
+            border-bottom: 2px solid gray;
+            background: transparent;
+            @extend %small_montserrat;
+            transition: all 0.5s ease-in-out;
+
+            &::-webkit-input-placeholder {
+              transition: all 0.5s ease-in-out;
+            }
+
+            &:focus {
+              outline: none;
+              border-bottom: 2px solid $light_pink;
+            }
+
+            &:focus::-webkit-input-placeholder {
+              color: $light-pink;
+            }
+          }
+
+          .create_profile_form_text {
+            resize: none;
+            display: block;
+            height: 75px;
+            width: 100%;
+            @extend %small_montserrat;
+            border-radius: 5px;
+            padding: 5px;
+
+
+            &:focus {
+              outline: none;
+              border: 1px solid $light_pink;
+            }
+          }
+        }
+      }
+
+      .button_container {
+        height: 20%;
+        width: 100%;
+        @extend %center_flex;
+
+        .button_inner_container {
+          height: 100%;
+          width: 35%;
+          @extend %space_between_flex;
+          transform: translateY(15px);
+
+
+          .submit_button {
+            background: #abe8e3;
+            @extend %basic_button;
+            @extend %small_montserrat;
+            border: none;
+            color: white;
+            transition: all 0.3s ease-in;
+
+            &:hover {
+              background: #3ce6d7;
+            }
+            
+          }
+
+          .back_button {
+            text-decoration: none;
+            color: white;
+            @extend %basic_button;
+            @extend %small_montserrat;
+            @extend %center_flex;
+            background: rgb(121, 121, 121);
+            transition: all 0.3s ease-in;
+
+            &:hover {
+              background: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
