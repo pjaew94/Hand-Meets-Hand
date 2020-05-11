@@ -1,0 +1,252 @@
+@import "config";
+
+.dashboard_actions_container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+
+  .inner_container {
+    height: auto;
+    width: 60%;
+    margin-top: 15vh;
+    display: flex;
+    flex-direction: column;
+
+    .profile_container {
+      background: #FFD9DA;
+    }
+
+    .experience_container {
+      background: #DDFDFE;
+    }
+
+    .education_container {
+      background: #E0E1E9;
+    }
+
+    .content_container {
+      height: auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      box-shadow: 5px 10px 15px rgb(209, 209, 209);
+
+      .header_container {
+        height: 60px;
+        width: 100%;
+        @extend %space_between_flex;
+
+        .type_text {
+          height: 100%;
+          width: auto;
+          @extend %center_flex;
+          font-family: "Montserrat", sans-serif;
+          font-size: 1.2rem;
+        }
+
+        .plus_icon {
+          height: 100%;
+          width: auto;
+          @extend %center_flex;
+
+          .icon {
+            font-size: 1.5rem;
+            color: $light_pink;
+            transition: all 0.3s ease-in-out;
+
+            &:visited {
+              color: $light_pink;
+            }
+
+            &:hover {
+              color: #f33c66;
+            }
+          }
+        }
+      }
+
+      .user_profile_container {
+        height: auto;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+
+        .top_container {
+          height: auto;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          margin-bottom: 40px;
+
+          .avatar_img {
+            border-radius: 50%;
+            margin-right: 50px;
+          }
+
+          .top_right_container {
+            height: auto;
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            
+
+            .name,
+            .status_company,
+            .location_website {
+              font-family: 'Montserrat';
+              margin-bottom: 10px;
+            }
+
+            .name {
+              font-size: 1.5rem;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .bottom_container {
+          height: 200px;
+          width: 100%;
+          display: flex;
+
+          .bio,
+          .social {
+            height: auto;
+            width: 50%;
+            font-family: 'Montserrat';
+            
+          }
+
+          .bio {
+            font-size: 0.8rem;
+          }
+
+          .social {
+            height: auto;
+            width: 50%;
+            flex-direction: column;
+
+            a {
+              width: 240px;
+              text-decoration: none;
+              color: black;
+              margin-bottom: 10px;
+              transform: translateX(40px);
+              display: flex;
+              transition: all 0.3s ease-in-out;
+              
+
+              .social_link {
+                font-size: 1.5rem;
+                margin-right: 10px;
+                
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .experience_education_container {
+      height: auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .content_container {
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .exp_edu_container {
+          height: auto;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+
+          .exp_edu_post {
+            height: auto;
+            width: 90%;
+            @extend %space_between_flex;
+            padding: 15px 0;
+
+            .content_inner_container {
+              height: auto;
+              width: auto;
+
+              .title,
+              .company,
+              .location,
+              .date {
+                font-family: "Montserrat", sans-serif;
+              }
+
+              .company,
+              .location,
+              .date {
+                padding-left: 10px;
+              }
+
+              .title {
+                font-weight: 500;
+              }
+
+              .company {
+                font-size: 0.9rem;
+                padding-top: 5px;
+              }
+
+              .location {
+                font-size: 0.9rem;
+                padding-bottom: 5px;
+              }
+
+              .date {
+                font-size: 0.8rem;
+              }
+            }
+
+            .button_container {
+              height: 50px;
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+
+              button {
+                border: none;
+                background: none;
+                outline: none;
+                cursor: pointer;
+
+                .icon {
+                  font-size: 1.1rem;
+                  color: black;
+                  transition: all 0.3s ease-in-out;
+                }
+
+                .edit_icon:hover {
+                  color: cyan;
+                }
+
+                .trash_icon:hover {
+                  color: rgb(255, 106, 130);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+  }
+}

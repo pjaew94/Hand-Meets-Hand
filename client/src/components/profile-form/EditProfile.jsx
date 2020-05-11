@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createProfile } from '../../actions/profile'
+import { createProfile, getCurrentProfile } from '../../actions/profile';
 
 import '../styles/CreateProfile.scss';
 
-const CreateProfile = ({ createProfile, history }) => {
-  const [formData, setFormData] = useState({
+const EditProfile = ({
+  profile: { profile, loading },
+  createProfile,
+  getCurrentProfile,
+  history,
+}) => {
+
+  const initialState = {
     company: '',
     website: '',
     location: '',
@@ -17,9 +23,24 @@ const CreateProfile = ({ createProfile, history }) => {
     youtube: '',
     facebook: '',
     twitter: '',
-    instagram: ''
-  });
+    instagram: '',
+  }
+  const [formData, setFormData] = useState(initialState);
 
+  useEffect(() => {
+    if (!profile) getCurrentProfile();
+    if (!loading) {
+      const profileData = { ...initialState };
+      for (const key in profile) {
+        if (key in profileData) profileData[key] = profile[key];
+      }
+      for (const key in profile.social) {
+        if (key in profileData) profileData[key] = profile.social[key];
+      }
+      setFormData(profileData);
+    }
+
+  }, [loading, getCurrentProfile, profile])
 
   const {
     company,
@@ -31,44 +52,38 @@ const CreateProfile = ({ createProfile, history }) => {
     youtube,
     facebook,
     twitter,
-    instagram
+    instagram,
   } = formData;
 
-  const onChange = e =>
+  const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData, history, true);
   };
 
   return (
     <div className='create_profile_container'>
       <div className='inner_container'>
         <div className='create_profile_text'>Create Profile</div>
-        <form className='form' onSubmit={e => onSubmit(e)}>
+        <form className='form' onSubmit={(e) => onSubmit(e)}>
           <div className='form_inner_container'>
             <div className='left_form_container'>
               <div className='header_text'>About You</div>
               <div className='form_group'>
                 <div className='form_text'>
-                  Which of the following best describes your current status?
+                  What is your current status? (Ex: Job Title or Student)
                 </div>
-                <select className='selector' name='status' value={status} onChange={onChange}>
-                  <option value='0'>Select One</option>
-                  <option value='Full Time'>Full Time Employee</option>
-                  <option value='Part Time'>Part Time Employee</option>
-                  <option value='Organization Representative'>
-                    Organization Representative
-                  </option>
-                  <option value='Student or Learning'>
-                    Student or Learning
-                  </option>
-                  <option value='Intern'>Intern</option>
-                  <option value='Other'>Other</option>
-                </select>
+                <input
+                  className='selector'
+                  name='status'
+                  value={status}
+                  onChange={onChange}
+                >
+                </input>
               </div>
-             
+
               <div className='form_group'>
                 <div className='form_text'>
                   What is the name of the company or organization you are
@@ -119,7 +134,6 @@ const CreateProfile = ({ createProfile, history }) => {
                   name='bio'
                   value={bio}
                   onChange={onChange}
-                
                 />
               </div>
             </div>
@@ -186,12 +200,12 @@ const CreateProfile = ({ createProfile, history }) => {
             </div>
           </div>
           <div className='button_container'>
-          <div className="button_inner_container">
-            <input type='submit' className='submit_button' />
-            <Link className='back_button' to='/dashboard'>
-              Go Back
-            </Link>
-          </div>
+            <div className='button_inner_container'>
+              <input type='submit' className='submit_button' />
+              <Link className='back_button' to='/dashboard'>
+                Go Back
+              </Link>
+            </div>
           </div>
         </form>
       </div>
@@ -199,9 +213,16 @@ const CreateProfile = ({ createProfile, history }) => {
   );
 };
 
-
-CreateProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired
+EditProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
 };
 
-export default connect(null, { createProfile }) (withRouter(CreateProfile));
+const mapStateToProps = state => ({
+  profile: state.profile
+});
+
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+  withRouter(EditProfile)
+);

@@ -2,8 +2,10 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import DashboardActions from './DashboardActions'
 import { getCurrentProfile } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
+
 
 import noProfileSvg from '../../svgs/PettingDoodle.svg';
 import '../styles/Dashboard.scss';
@@ -15,7 +17,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   return loading && profile === null ? (
     <Spinner />
@@ -26,7 +28,7 @@ const Dashboard = ({
           <div className='inner_container'>
             <div className='left_container'>
               <div className='text_container'>
-                <div className='greeting_text'>Hey, {user && user.name}!</div>
+                <div className='greeting_text'>Hey, {user && user.name.trim().split(' ')[0]}!</div>
                 <div className='text_1'>
                   It looks like you haven't set up your profile yet!{' '}
                 </div>
@@ -50,9 +52,9 @@ const Dashboard = ({
           </div>
         </div>
       ) : (
-        <div className='profile_dashboard_container'></div>
+        <DashboardActions />
       )}
-    </div>
+    </div>  
   );
 };
 

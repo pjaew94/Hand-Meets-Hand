@@ -1,0 +1,144 @@
+@import 'config';
+
+.add_experience_container {
+  height: 100vh;
+  width: 100%;
+  @extend %center_flex;
+
+  .form_text,
+  textarea,
+  p {
+    @extend %small_montserrat;
+  }
+
+  .inner_container {
+    height: 70%;
+    width: 40%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    @extend %center_flex;
+
+    .inner_inner_container {
+      height: 90%;
+      width: 90%;
+      
+
+      .add_experience_text {
+        @extend %medium_montserrat;
+        height: 10%;
+        width: 100%;
+      }
+
+      .form {
+        height: 90%;
+        width: 100%;
+        @extend %space_between_flex;
+        flex-direction: column;
+
+        .form_group {
+          height: 10%;
+          width: 80%;
+          @extend %space_between_flex;
+        }
+
+        .form_group_to_date {
+          height: 15%;
+          width: 80%;
+         
+
+          .to_date_group {
+            @extend %space_between_flex;
+          }
+        }
+
+        .form_group_textarea {
+          height: 30%;
+          width: 80%;
+
+          textarea {
+            resize: none;
+            display: block;
+            height: 100px;
+            width: 100%;
+            @extend %small_montserrat;
+            border-radius: 5px;
+            padding: 5px;
+            margin-top: 15px;
+
+
+            &:focus {
+              outline: none;
+              border: 1px solid $light_pink;
+            }
+          }
+        }
+
+        .input {
+          display: block;
+          height: 50%;
+          width: 40%;
+          border: none;
+          border-bottom: 2px solid gray;
+          background: transparent;
+          @extend %small_montserrat;
+          transition: all 0.5s ease-in-out;
+
+          &::-webkit-input-placeholder {
+            transition: all 0.5s ease-in-out;
+          }
+
+          &:focus {
+            outline: none;
+            border-bottom: 2px solid $light_pink;
+          }
+
+          &:focus::-webkit-input-placeholder {
+            color: $light-pink;
+          }
+        }
+
+
+        .button_container {
+          height: 10%;
+          width: 30%;
+          @extend %space_between_flex;
+
+          .button_1,
+          .button_2 {
+            border: none;
+            text-decoration: none;
+            background: none;
+            text-transform: uppercase;
+            @extend %small_montserrat;
+            font-weight: 600;
+            font-size: 1rem;
+            @extend %center_flex;
+            cursor: pointer;
+
+          }
+
+          .button_1 {
+            color: $light_pink;
+            transition: all 0.3s ease-in;
+
+            &:hover {
+              color: #fb426e;
+            }
+          }
+
+          .button_2 {
+            color: $text_color;
+
+            transition: all 0.3s ease-in;
+
+            &:hover {
+              color: #4033ce;
+            }
+          }
+        }
+
+        
+      }
+    }
+  }
+}

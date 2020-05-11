@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { Link as LinkScroll } from 'react-scroll';
+import React from 'react';
+
+import { Link } from 'react-scroll';
 
 import '../../styles/LandingHow.scss'
 

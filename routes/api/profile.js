@@ -41,9 +41,6 @@ router.post(
     [
       check('status', 'Status is required')
         .not()
-        .isEmpty(),
-      check('isStudent', 'Are you a student?')
-        .not()
         .isEmpty()
     ]
   ],

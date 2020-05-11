@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -57,7 +57,7 @@ const Login = ({ login, isAuthenticated }) => {
             />
             <input type='submit' className='login_button' value='Login' />
             <div className='new_user_prompt'>
-              New to Hand Meets Hand? <Link class='prompt_link' to='/register'>Sign up</Link> now!
+              New to Hand Meets Hand? <Link className='prompt_link' to='/register'>Sign up</Link> now!
             </div>
           </form>
         </div>

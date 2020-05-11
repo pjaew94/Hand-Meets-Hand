@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Link as LinkScroll } from 'react-scroll';
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
